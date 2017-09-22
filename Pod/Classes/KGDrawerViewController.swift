@@ -255,4 +255,15 @@ open class KGDrawerViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    // MARK: Screen rotation management
+    open override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        let supportedOrientations:UIInterfaceOrientationMask
+        if let centralVC = self.centerViewController {
+            supportedOrientations = centralVC.supportedInterfaceOrientations
+        } else {
+            supportedOrientations = super.supportedInterfaceOrientations
+        }
+        return supportedOrientations
+    }
+    
 }
